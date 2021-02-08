@@ -14,7 +14,7 @@ router.get("/our-vision", (req, res) => {
   res.render("about-us/our-vision");
 });
 router.get("/ways-donate", (req, res) => {
-  res.render("about-us/about-us");
+  res.render("about-us/ways-donate");
 });
 router.get("/ways-donate/start-fundraiser", (req, res) => {
   res.render("about-us/about-us");
