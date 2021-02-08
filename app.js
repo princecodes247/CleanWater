@@ -17,7 +17,13 @@ app.get("/", (req, res) => {
   res.render("home");
 });
 app.get("/faq", (req, res) => {
-  res.render("about-us/about-us");
+  res.render("faq");
+});
+app.get("/contact-us", (req, res) => {
+  res.render("contact-us");
+});
+app.get("/contact-us", (req, res) => {
+  res.render("contact-us");
 });
 app.use("/about-us", require("./routes/about-us.js"));
 
