@@ -1,6 +1,6 @@
 <main class="wide-container">
     <section class="page-header" style="
-        background-image: url(../media/images/Waterorg_Our-Impact_Cambodia_Header.original.jpg);
+        background-image: url(/media/images/Waterorg_Our-Impact_Cambodia_Header.original.jpg);
       ">
         <div class="content-container">
             <div class="page-header__content">
@@ -14,7 +14,7 @@
         <div class="content-container">
             <ol class="breadcrumbs">
                 <li class="breadcrumbs__item">
-                    <a href="../">Home</a>
+                    <a href="/">Home</a>
                 </li>
                 <li class="breadcrumbs__item active">Donate</li>
             </ol>
@@ -34,170 +34,7 @@
             </div>
             <div class="block-html">
                 <div class="donately-form"></div>
-                <script src="https://cdn.donately.com/dntly-core/2.0/core.min.js"></script>
-                <script>
-                    $(document).ready(function (event) {
-                        if (Donately) {
-                            Donately.init({
-                                selector: ".donately-form",
-                                options: {
-                                    "donately-id": "act_dd6d76ceed12",
-                                    "stripe-publishable-key":
-                                        "pk_live_acvaaTznM4HgDDVaT0hKJmFQ",
-                                    "donately-amount": "",
-                                    "donately-presets": "25,100,250,500",
-                                    "donately-payment-options": "cc,ach",
-                                    "donately-address": "true",
-                                    "donately-currency": "true",
-                                    "donately-phone": "true",
-                                    "donately-custom-css":
-                                        '{"li#donately-payment-option-1":{"width":"33%"},"li#donately-payment-option-2":{"width":"33%"},"li#donately-payment-option-3":{"width":"33%"}}',
-                                    "donately-custom-fields":
-                                        '{"fields":[{"type":"hidden","value":"","id":"utm_params","before":"submit"},{"type":"hidden","value":' +
-                                        JSON.stringify({
-                                            campaign: "General",
-                                            fund: "Unrestricted",
-                                            solicitor: "97770",
-                                            package: "",
-                                            appeal: "A00000",
-                                        }) +
-                                        ',"id":"wo_params","before":"submit"}, {"type":"hidden","value":"","id":"url","before":"submit"},{"type":"checkbox","label":"I would like this donation to be made in honor of someone. <em>(Note: An eCard will be sent to <u>one</u> honoree per donation.)</em>","value":"yes","id":"in_honor_of","before":"submit"},{"type":"text","label":"Honoree&apos;s Name","id":"honorees_name","before":"submit"},{"type":"email","label":"Honoree&apos;s Email (example@gmail.com)","id":"honorees_email","before":"submit"},{"type":"textarea","label":"Message to Honoree","id":"honorees_message","before":"submit"},{"type":"checkbox","label":"I am donating on behalf of a business or organization","value":"yes","id":"on_behalf_of_org","before":"namegroups"},{"type":"text","label":"Business or organization name","id":"org_name","before":"namegroups"},{"type":"select","label":"Type of organization","value":"0","options":[{"value":"Select One","label":"Select One"},{"value":"Foundation","label":"Foundation"}, {"value":"Corporation","label":"Corporation"}, {"value":"Religious Organization","label":"Religious Organization"}, {"value":"Educational Organization","label":"Educational Organization"}, {"value":"Other","label":"Other"}],"id":"org_type","before":"namegroups"},{"type":"hidden","value":"","id":"ecard","before":"submit"}]}',
-                                },
-                                afterFormLoad: function () {
-                                    $("#donately-payment-option-2").after(
-                                        '<li id="donately-payment-option-3" class="donately-payment-option-img"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=J9GELZFVQ9JZJ"><img src="../static/img/pp-logo-100px.png"></a></li>'
-                                    );
-                                    $("label[for=donately-first-name]").append(
-                                        '<span class="required-indicator">*</span>'
-                                    );
-                                    $("label[for=donately-last-name]").append(
-                                        '<span class="required-indicator">*</span>'
-                                    );
-                                    $("label[for=donately-email]").append(
-                                        '<span class="required-indicator">*</span>'
-                                    );
-                                    $("label[for=donately-street-address]").append(
-                                        '<span class="required-indicator">*</span>'
-                                    );
-                                    $("label[for=donately-city]").append(
-                                        '<span class="required-indicator">*</span>'
-                                    );
-                                    $("label[for=donately-state]").append(
-                                        '<span class="required-indicator">*</span>'
-                                    );
-                                    $("label[for=donately-zip-code]").append(
-                                        '<span class="required-indicator">*</span>'
-                                    );
-                                    $("label[for=donately-country]").append(
-                                        '<span class="required-indicator">*</span>'
-                                    );
-                                    $("#donately-first-name")
-                                        .attr("required", true)
-                                        .addClass("donately-required");
-                                    $("#donately-last-name")
-                                        .attr("required", true)
-                                        .addClass("donately-required");
-                                    $("#donately-phone-number")
-                                        .removeAttr("required")
-                                        .removeClass("donately-required");
-                                    $("#donately-amount").attr("placeholder", "60 USD");
-                                    $("label[for=donately-recurring-donation]").text(
-                                        "Monthly donation"
-                                    );
 
-                                    $("#honorees_email")
-                                        .parent("fieldset.donately-fields")
-                                        .after(
-                                            '<div id="ecards_wrap"> \
-  <div id="ecards_label">Select an eCard:</div> \
-  <div class="row"> \
-      <div class="col-4 ecard-item"><div class="ecard-thumb-wrap"><img class="ecard-thumb" data-ecard="https://s3.amazonaws.com/static.water.org/ecards/ecard1.jpg" src="https://s3.amazonaws.com/static.water.org/ecards/ecard1_thumb.jpg" /></div><div class="arrow-up"></div></div> \
-      <div class="col-4 ecard-item"><div class="ecard-thumb-wrap"><img class="ecard-thumb" data-ecard="https://s3.amazonaws.com/static.water.org/ecards/ecard2.jpg" src="https://s3.amazonaws.com/static.water.org/ecards/ecard2_thumb.jpg" /></div><div class="arrow-up"></div></div> \
-      <div class="col-4 ecard-item"><div class="ecard-thumb-wrap"><img class="ecard-thumb" data-ecard="https://s3.amazonaws.com/static.water.org/ecards/ecard3.jpg" src="https://s3.amazonaws.com/static.water.org/ecards/ecard3_thumb.jpg" /></div><div class="arrow-up"></div></div> \
-  </div> \
-  <div class="row"> \
-      <div class="col"> \
-          <div id="ecard_preview"></div> \
-      </div> \
-  </div> \
-</div>'
-                                        );
-
-                                    // Preload eCard images
-                                    $("img.ecard-thumb").each(function (i, obj) {
-                                        $("<img />").attr("src", $(this).data("ecard"));
-                                    });
-
-                                    $("#in_honor_of").change(function () {
-                                        if ($(this).is(":checked")) {
-                                            $("fieldset[for=honorees_name]").show();
-                                            $("fieldset[for=honorees_email]").show();
-                                            $("fieldset[for=honorees_message]").show();
-                                            $("#ecards_wrap").show();
-                                        } else {
-                                            $("fieldset[for=honorees_name]").hide();
-                                            $("fieldset[for=honorees_email]").hide();
-                                            $("fieldset[for=honorees_message]").hide();
-                                            $("#ecards_wrap").hide();
-                                        }
-                                    });
-
-                                    $(".ecard-item").click(function () {
-                                        $(".ecard-item").removeClass("active");
-                                        $(this).addClass("active");
-                                        $("#ecard").val(
-                                            $(".ecard-item.active img.ecard-thumb").data("ecard")
-                                        );
-                                        $("#ecard_preview").html(
-                                            '<img src="' +
-                                            $(".ecard-item.active img.ecard-thumb").data(
-                                                "ecard"
-                                            ) +
-                                            '" />'
-                                        );
-                                    });
-
-                                    $("#on_behalf_of_org").change(function () {
-                                        if ($(this).is(":checked")) {
-                                            $("fieldset[for=org_name]").show();
-                                            $("fieldset[for=org_type]").show();
-                                        } else {
-                                            $("fieldset[for=org_name]").hide();
-                                            $("fieldset[for=org_type]").hide();
-                                        }
-                                    });
-                                },
-                                onSuccess: function (donation_response) {
-                                    donation_payload = {
-                                        id: donation_response.data.id,
-                                        object: donation_response.data.object,
-                                        status: donation_response.data.status,
-                                        donation_date: donation_response.data.donation_date,
-                                        amount_in_cents: donation_response.data.amount_in_cents,
-                                        currency: donation_response.data.currency,
-                                        recurring: donation_response.data.recurring,
-                                        refunded: donation_response.data.refunded,
-                                        transaction_id: donation_response.data.transaction_id,
-                                        created: donation_response.data.created,
-                                        updated: donation_response.data.updated,
-                                        amount_formatted:
-                                            donation_response.data.amount_formatted,
-                                        anonymous: donation_response.data.anonymous,
-                                        email: donation_response.data.person.email,
-                                        first_name: donation_response.data.person.first_name,
-                                        last_name: donation_response.data.person.last_name,
-                                        org_name: donation_response.data.meta_data.org_name,
-                                    };
-                                    donation_payload_param = encodeURIComponent(
-                                        JSON.stringify(donation_payload)
-                                    );
-                                    window.location.href =
-                                        "receipt/?donation_payload=" + donation_payload_param;
-                                },
-                            });
-                        }
-                    });
-                </script>
             </div>
         </div>
     </section>
@@ -212,7 +49,7 @@
                         <ul>
                             <li>
                                 For information on other ways to donate, whether you are an
-                                individual or a business, learn more <a href="../about-us/ways-donate/">here</a>. 
+                                individual or a business, learn more <a href="/about-us/ways-donate/">here</a>. 
                             </li>
                             <li>
                                 All donations are in USD. If a donation is made from an
@@ -228,7 +65,7 @@
                                 awareness about safe water initiatives on the continent, and
                                 that work continues today as part of Water.org’s vision of
                                 safe water and sanitation for all.
-                                <a href="../about-us/founders-board-team/matt-damon/">Learn more</a>.
+                                <a href="/about-us/founders-board-team/matt-damon/">Learn more</a>.
                             </li>
                         </ul>
                     </div>

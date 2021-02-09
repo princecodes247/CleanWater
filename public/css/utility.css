@@ -1,0 +1,13 @@
+.tertiary-button,
+.tertiary-button--reversed {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.075rem;
+}
+
+@media screen and (min-width: 800px) {
+  .site-header__navigation #invest-header-button {
+    display: none;
+  }
+}

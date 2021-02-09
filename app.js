@@ -19,12 +19,36 @@ app.get("/", (req, res) => {
 app.get("/faq", (req, res) => {
   res.render("faq");
 });
-app.get("/contact-us", (req, res) => {
-  res.render("contact-us");
+app.get("/donate", (req, res) => {
+  res.render("donate");
+});
+app.get("/invest", (req, res) => {
+  res.render("invest");
 });
 app.get("/contact-us", (req, res) => {
   res.render("contact-us");
 });
+app.get("/our-vision", (req, res) => {
+  res.render("our-vision");
+});
+app.get("/monthly-giving", (req, res) => {
+  res.render("monthly-giving");
+});
+app.get("/partners", (req, res) => {
+  res.render("partners");
+});
+app.get("/solutions", (req, res) => {
+  res.render("solutions/solutions");
+});
+
+app.get("/partners", (req, res) => {
+  res.render("partners");
+});
+app.get("/subscribe", (req, res) => {
+  res.render("subscribe");
+});
+
 app.use("/about-us", require("./routes/about-us.js"));
+app.use("/our-impact", require("./routes/our-impact.js"));
 
 app.listen(5000, () => console.log("listening"));
