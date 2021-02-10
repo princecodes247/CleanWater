@@ -1,0 +1,58 @@
+<main class="wide-container">
+    <section class="page-header page-header--short"
+        style="background-image: url(/media/images/Waterorg_Homepage_Header_4ymjTup.original.jpg)">
+        <div class="content-container">
+            <div class="page-header__content">
+                <h1 class="page-header__headline align-self-lg-center">Signup</h1>
+                <div class="page-header__body">
+                    <section class="stripe-section single-column-content">
+                        <div class="content-container">
+                            <form action="/register/" method="POST">
+                                <input type="hidden" name="csrfmiddlewaretoken"
+                                    value="RgQ3BPeoPF8v5zzF03mVlhVazxDsK8afTwp1hKVGrRF4iMSMrqRaUBELBjYMUAgb" />
+
+                                <div class="form-group">
+                                    <label class="control-label" for="id_firstname">First Name</label><input type="text"
+                                        name="firstName" maxlength="255" title="" class="form-control"
+                                        placeholder="First Name" id="id_name" required />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="id_lastName">Last Name</label><input type="text"
+                                        name="lastName" maxlength="255" title="" class="form-control"
+                                        placeholder="Last Name" id="id_lastName" required />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="id_email-address">Email Address</label><input
+                                        type="email" name="email" title="" class="form-control"
+                                        placeholder="Email Address" id="id_email-address" required />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="id_password">Password</label><input
+                                        type="password" name="password" maxlength="255" title="" class="form-control"
+                                        placeholder="Password" id="id_name" required />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="id_password2">Confirm Password</label><input
+                                        type="password" name="password2" maxlength="255" title="" class="form-control"
+                                        placeholder="Confirm Password" id="id_password2" required />
+                                </div>
+                                <div class="form-group">
+                                    <script data-cfasync="false"
+                                        src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+                                    <script src="//www.google.com/recaptcha/apifef7.js?hl=en"></script>
+                                    <div class="g-recaptcha" data-sitekey="6LdddWEUAAAAAHbDYKjTrvMbc6ImKubOmKgApBYq"
+                                        data-class="form-control" data-title="" data-required="True"
+                                        data-id="id_wagtailcaptcha"></div>
+
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
