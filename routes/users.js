@@ -1,4 +1,4 @@
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 const Code = require("../models/secretCode");
 //const cryptoRandomString = require("crypto-random-string");
 const dotenv = require("dotenv");
