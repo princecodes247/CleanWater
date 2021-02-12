@@ -6,16 +6,16 @@ const mongoose = require("mongoose");
 const app = express();
 
 // DB Config
-const db = require("./config/keys").mongoURI;
+// const db = require("./config/keys").mongoURI;
 
-mongoose
-  .connect(db, {
-    useCreateIndex: true,
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log(err));
+// mongoose
+//   .connect(db, {
+//     useCreateIndex: true,
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
+//   .then(() => console.log("MongoDB Connected"))
+//   .catch((err) => console.log(err));
 
 // EJS
 app.use(expressLayouts);
@@ -75,7 +75,7 @@ app.get("/subscribe", (req, res) => {
   res.render("subscribe");
 });
 
-app.use("/", require("./routes/users.js"));
+//app.use("/", require("./routes/users.js"));
 app.use("/about-us", require("./routes/about-us.js"));
 app.use("/our-impact", require("./routes/our-impact.js"));
 app.use("/solutions", require("./routes/solutions.js"));
