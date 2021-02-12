@@ -2,7 +2,7 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
-
+const PORT = process.env.PORT || 5000;
 const app = express();
 
 // DB Config
@@ -24,6 +24,7 @@ app.set("view engine", "ejs");
 // Express body parser
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
+dotenv.config();
 
 // For Static files
 app.use(express.static("public"));
@@ -80,4 +81,4 @@ app.use("/about-us", require("./routes/about-us.js"));
 app.use("/our-impact", require("./routes/our-impact.js"));
 app.use("/solutions", require("./routes/solutions.js"));
 
-app.listen(5000, () => console.log("listening"));
+app.listen(PORT, () => console.log("listening"));
