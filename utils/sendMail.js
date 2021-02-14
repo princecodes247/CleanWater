@@ -1,10 +1,9 @@
 const emailService = require("../utils/nodemailer");
 const cryptoRandomString = require("crypto-random-string");
 const Code = require("../models/secretCode");
-const dotenv = require("dotenv")
+const dotenv = require("dotenv");
 
-dotenv.config()
-
+dotenv.config();
 
 const sendMail = (req, user) => {
   // Send Confirmation Email
@@ -12,13 +11,12 @@ const sendMail = (req, user) => {
   const secretCode = cryptoRandomString({
     length: 6,
   });
-    const codeData = {
-        code: secretCode,
-        email:req.body.email
-  }
+  const codeData = {
+    code: secretCode,
+    email: req.body.email,
+  };
 
-
-   Code.create(codeData)
+  Code.create(codeData)
     .then(() => {
       console.log("Saved Code");
     })
@@ -26,12 +24,12 @@ const sendMail = (req, user) => {
       console.log("Error Ocurred");
     });
 
-    const data = {
-      from: process.env.EMAIL_USERNAME,
-      to: req.body.email,
-      subject: "Your Activation Link for your Account",
-      html: ` <h3 style=" color:rgb(92, 61, 180); font-size: xx-large; font-weight: lighter; font-family: sans-serif;">
-      Welcome to SaveFX </h3>
+  const data = {
+    from: process.env.EMAIL_USERNAME,
+    to: req.body.email,
+    subject: "Your Activation Link for your Account",
+    html: ` <h3 style=" color:rgb(92, 61, 180); font-size: xx-large; font-weight: lighter; font-family: sans-serif;">
+      Welcome to Clean Water </h3>
       <p style="font-size: x-large; font-weight: lighter; font-family: sans-serif;">
          Glad to see you join our ever-growing inverstment platform.
          <br>
@@ -47,18 +45,16 @@ const sendMail = (req, user) => {
          <br>
          <br>
          <p style="font-size: x-large; font-weight: lighter; font-family: sans-serif;text-align: left; "> Thank you... </p>
-         <p style="font-size: x-large; font-weight: lighter; font-family: sans-serif;text-align: left;margin-top: 0px;"> SaveFX Team.</p>`,
-      };
-    
-  emailService
-    .sendMail(data, (err, res) => {
-      if (err) {
-        console.log(err)
-      } else {
-        console.log("Confirmation Email Sent...")
-      }
-    })
-  
+         <p style="font-size: x-large; font-weight: lighter; font-family: sans-serif;text-align: left;margin-top: 0px;"> CleanWater Team.</p>`,
+  };
+
+  emailService.sendMail(data, (err, res) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Confirmation Email Sent...");
+    }
+  });
 };
 
-module.exports = sendMail
+module.exports = sendMail;

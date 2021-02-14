@@ -25,7 +25,7 @@ const sendCode = (req, user, token) => {
       Paste this into your browser to complete the process: ${baseUrl}/reset/${token}  </p>
       <br>
       <code style="font-size: x-large;> If you did not request this, please ignore this email and your password will remain unchanged.</code>
-    <p style="font-size: x-large; font-weight: lighter; font-family: sans-serif;text-align: left;margin-top: 0px;"> SaveFX Team.</p>`,
+    <p style="font-size: x-large; font-weight: lighter; font-family: sans-serif;text-align: left;margin-top: 0px;"> CleanWater Team.</p>`,
   };
 
   emailService.sendMail(data, (err, res) => {
