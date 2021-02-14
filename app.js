@@ -36,6 +36,9 @@ app.use(express.static("public"));
 app.get("/", (req, res) => {
   res.render("home");
 });
+// app.get("/dashboard", (req, res) => {
+//   res.render("dashboard");
+// });
 app.get("/faq", (req, res) => {
   res.render("faq");
 });
@@ -76,9 +79,9 @@ app.get("/resources", (req, res) => {
 app.get("/subscribe", (req, res) => {
   res.render("subscribe");
 });
-app.get("/confirm", (req, res) => {
-  res.render("confirm-email");
-});
+// app.get("/confirm", (req, res) => {
+//   res.render("confirm-email");
+// });
 app.use("/", require("./routes/users.js"));
 app.use("/", require("./routes/verification.js"));
 app.use("/about-us", require("./routes/about-us.js"));

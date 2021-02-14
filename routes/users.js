@@ -45,7 +45,7 @@ router.post("/register", (req, res) => {
               .then((user) => {
                 console.log("User Registered");
                 sendMail(req, user);
-                res.redirect("/confirm");
+                res.render("confirm-email");
               })
               .catch((err) => {
                 console.log({ err });

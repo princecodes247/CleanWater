@@ -32,7 +32,8 @@ router.get(
 
 // Verification Redirect Route
 router.get("/account/verified", (req, res) => {
-  res.send("<h1> You're Verified</h1>");
+  res.render("confirm-email");
+  res.redirect("/home");
   // res.redirect("/home")
 });
 
