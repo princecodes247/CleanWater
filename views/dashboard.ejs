@@ -3,10 +3,11 @@
     <div class="breadcrumbs-stripe">
         <div class="content-container">
             <ol class="breadcrumbs">
-                <li class="breadcrumbs__item">
-                    <a href="/">Home</a>
-                </li>
-                <li class="breadcrumbs__item active">Confirm Email</li>
+                is<%= user %>
+                    <li class="breadcrumbs__item">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="breadcrumbs__item active">Dashboard</li>
             </ol>
         </div>
     </div>
@@ -14,7 +15,7 @@
         <div class="content-container">
             <div class="block-rich_text">
                 <div class="rich-text">
-                    <h2>Check your Email</h2>
+                    <h2>Dashboard</h2>
                     <p>
                         An confirmation email has ben sent to your email address,
                         if you can't find it, check in spam.
@@ -29,9 +30,3 @@
     </section>
 
 </main>
-<script>
-    setTimeout(() => {
-        window.location.href = `/dashboard`
-
-    }, 1500)
-</script>

@@ -23,7 +23,16 @@ const UserSchema = mongoose.Schema({
     default: "pending",
     required: false,
   },
-
+  balance: {
+    type: Number,
+    default: 0,
+    required: false,
+  },
+  lastDeposit: {
+    type: Date,
+    default: Date.now(),
+    required: false,
+  },
   dateCreated: {
     type: Date,
     default: Date.now(),

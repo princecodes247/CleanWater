@@ -33,7 +33,7 @@ router.get(
 // Verification Redirect Route
 router.get("/account/verified", (req, res) => {
   res.render("confirm-email");
-  res.redirect("/home");
+  //   res.redirect("/home");
   // res.redirect("/home")
 });
 
