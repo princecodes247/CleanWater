@@ -3,11 +3,11 @@
     <div class="breadcrumbs-stripe">
         <div class="content-container">
             <ol class="breadcrumbs">
-                is<%= user %>
-                    <li class="breadcrumbs__item">
-                        <a href="/">Home</a>
-                    </li>
-                    <li class="breadcrumbs__item active">Dashboard</li>
+
+                <li class="breadcrumbs__item">
+                    <a href="/">Home</a>
+                </li>
+                <li class="breadcrumbs__item active">Dashboard</li>
             </ol>
         </div>
     </div>
@@ -16,15 +16,36 @@
             <div class="block-rich_text">
                 <div class="rich-text">
                     <h2>Dashboard</h2>
-                    <p>
-                        An confirmation email has ben sent to your email address,
-                        if you can't find it, check in spam.
-                    </p>
+                    <h5>Welcome, <%= user.firstName %>
+                    </h5>
+
+
+
                 </div>
             </div>
+
             <div class="block-html">
                 <div class="donately-form"></div>
+                <div style="
+    text-align: center;
+">
+                    <h4>Balance:</h4>
+                    <br>
+                    <span class="bubble-stat__number animatable-stat" data-endstr="<%= user.balance %>"
+                        data-num="<%= user.balance %>" data-numstr="XXX">0</span>
+                    <h5>dollars</h5>
+                    <br>
+                    <br>
 
+
+
+                    <a href="/donate/" title="Donate" class="tertiary-button">
+                        Withdraw</a>
+                    <a href="/invest/" title="Donate" class="tertiary-button" style="
+              background: #79bde9;
+            ">
+                        Invest</a>
+                </div>
             </div>
         </div>
     </section>

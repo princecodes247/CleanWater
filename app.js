@@ -3,8 +3,9 @@ const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const PORT = process.env.PORT || 5000;
 const app = express();
+const PORT = 8080;
+// const balanceControl = require("./utils/balanceControl");
 
 // DB Config
 const db = require("./config/keys").mongoURI;
@@ -29,6 +30,8 @@ dotenv.config();
 
 // For Static files
 app.use(express.static("public"));
+
+// Calls a function that checks and controls the balance of all the users every 1day
 
 // app.get("/", (req, res) => {
 //   res.send("hi");

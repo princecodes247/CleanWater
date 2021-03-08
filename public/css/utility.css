@@ -11,3 +11,121 @@
     display: none;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  scroll-behavior: smooth;
+}
+.livechat-bubble {
+  background: blue;
+  position: fixed;
+  bottom: 3%;
+  left: 5%;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  z-index: 12;
+}
+
+.up-bubble {
+  background: blue;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  z-index: 12;
+}
+
+.livechat-cont {
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  position: fixed;
+  top: 0;
+
+  z-index: 10;
+  background-color: #00000066;
+  display: flex;
+  align-items: center;
+  clip-path: circle(129% at 12.8% 92.4%);
+  transition: 0.7s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+.livechat-cont.close {
+  clip-path: circle(100% at 12.8% 92.4%);
+}
+
+.livechat-cont .livechat {
+  position: absolute;
+  right: 0;
+
+  background: aqua;
+  height: 80%;
+  width: 100%;
+}
+
+.livechat-cont .livechat header {
+  background-color: aliceblue;
+  /* width: 70px; */
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.livechat-cont .livechat .livechat-body {
+  background-color: coral;
+  position: relative;
+  height: 90%;
+}
+
+.livechat-cont .livechat .livechat-messages {
+  padding: 10px;
+  height: 88%;
+  background-color: cornflowerblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.livechat-cont .livechat .livechat-messages .message {
+  padding: 5px 10px;
+  background-color: darkolivegreen;
+  align-self: flex-start;
+
+  margin-bottom: 10px;
+  min-width: 25%;
+  border-radius: 4px;
+  color: white;
+}
+.livechat-cont .livechat .livechat-messages .message.left {
+  align-self: flex-end;
+  margin-right: 20px;
+}
+
+.livechat-cont .livechat .livechat-entry-bar {
+  background-color: darkgreen;
+  height: 12%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px 0 5px;
+}
+
+.livechat-cont .livechat .livechat-entry-bar .message-box {
+  background-color: white;
+  color: black;
+  padding: 6px 10px;
+  border-radius: 7px;
+  display: flex;
+  height: 90%;
+  width: 80%;
+  resize: none;
+  margin: 0;
+  font-family: mark-pro, arial, serif;
+  font-family: Poppins;
+}

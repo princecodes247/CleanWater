@@ -28,6 +28,11 @@ const UserSchema = mongoose.Schema({
     default: 0,
     required: false,
   },
+  deposit: {
+    type: Number,
+    default: 0,
+    required: false,
+  },
   lastDeposit: {
     type: Date,
     default: Date.now(),

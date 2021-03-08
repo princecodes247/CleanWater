@@ -2,6 +2,7 @@ const Code = require("../models/secretCode");
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
+const sendCode = require("../utils/sendCode");
 
 // User Account Verification
 router.get(

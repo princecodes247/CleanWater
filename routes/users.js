@@ -15,7 +15,7 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 router.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login", { error: { type: "none" } });
 });
 
 // Register User
@@ -75,16 +75,39 @@ router.post("/login", (req, res) => {
         console.log("kk");
         if (bcrypt.compareSync(req.body.password, user.password)) {
           const username = user.username;
+          console.log("kkw");
           generateToken(res, username);
+          let incrementDays = Date.now() - user.lastDeposit;
+          incrementDays = incrementDays / 86400000;
+          //console.log(`last date was  ${incrementDays} days`);
+          if (incrementDays >= 10) {
+            // the user balance is set to be increased
+            // by 10% every 10 days
+            let numberOfIncrements = Math.floor(incrementDays / 10);
+            //console.log(numberOfIncrements);
+            user.balance =
+              user.balance + Math.floor(user.deposit / 10) * numberOfIncrements;
+
+            user.lastDeposit = Date.now();
+            user.save((err, user) => {
+              if (err) return console.log({ err });
+              console.log("Wallet Incremented");
+            });
+          }
+          res.render("dashboard", { user });
         } else {
           console.log("wrong");
-          res.json({ error: "Password is incorrect" });
+          res.render("login", {
+            error: { type: "password", body: "Wrong password" },
+          });
+          //res.json({ error: "Password is incorrect" });
         }
+      } else {
+        //res.json({ error: "User doesn't exist" });
       }
-      res.json({ error: "User doesn't exist" });
     })
     .catch((err) => {
-      res.json({ error: err });
+      console.log(err);
     });
 });
 

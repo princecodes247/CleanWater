@@ -5,6 +5,7 @@
             <div class="page-header__content">
                 <h1 class="page-header__headline align-self-lg-center">Login</h1>
                 <div class="page-header__body">
+
                     <section class="stripe-section single-column-content">
                         <div class="content-container">
                             <form action="/login/" method="POST">
@@ -18,9 +19,14 @@
                                         placeholder="Email Address" id="id_email-address" required />
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="id_password">Password</label><input
-                                        type="password" name="password" maxlength="255" title="" class="form-control"
-                                        placeholder="Password" id="id_name" required />
+
+                                    <label class="control-label" for="id_password">Password</label>
+                                    <% if (error.type=="password" ) { %>
+                                        <label class="popup" style="color: tomato; font-weight: 800;"><b>Wrong
+                                                password</b></label>
+                                        <% } %>
+                                            <input type="password" name="password" maxlength="255" title=""
+                                                class="form-control" placeholder="Password" id="id_name" required />
                                 </div>
 
                                 <div class="form-group">

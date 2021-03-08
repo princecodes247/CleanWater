@@ -7213,3 +7213,18 @@ ul.career-listings li {
   width: 100%;
   height: 100%;
 }
+
+.popup {
+  max-height: 100px;
+  animation: disappear 1.3s 6s forwards;
+  pointer-events: none;
+  opacity: 1;
+}
+
+@keyframes disappear {
+  to {
+    opacity: 0;
+
+    max-height: 0px;
+  }
+}
