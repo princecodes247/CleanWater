@@ -1,0 +1,52 @@
+<main class="wide-container" id="admin">
+    <nav>
+        <ul>
+            <li>
+                <input type="radio" name="admin-nav" id="users-nav" checked>
+                <label for="users-nav">
+                    Users
+                </label>
+            </li>
+            <li>
+                <input type="radio" name="admin-nav" id="messages-nav">
+                <label for="messages-nav">
+                    Messages
+                </label>
+            </li>
+            <li>
+                <input type="radio" name="admin-nav" id="settings-nav">
+                <label for="settings-nav">
+                    Settings
+                </label>
+            </li>
+        </ul>
+    </nav>
+    <section>
+        <div style="display: none;" id="userslist">
+            <% users.forEach(user=> { %>
+                <% if (user.status=="active" ) { %>
+
+
+                    <div class="user">
+
+                        <p>
+                            <%= `${user.firstName} ${user.lastName}` %>
+                        </p>
+
+                        <div>
+                            <p>
+                                <%= `${user.balance} ` %>
+                            </p>
+                        </div>
+
+
+                    </div>
+                    <% } %>
+                        <% }) %>
+
+        </div>
+        <div id="messages">
+
+        </div>
+    </section>
+</main>

@@ -7,11 +7,11 @@ const User = require("../models/User");
 module.exports = function (passport) {
   passport.use(
     new LocalStrategy(
-      { usernameField: "username" },
+      { usernameField: "email" },
       (username, password, done) => {
         // Match user
         User.findOne({
-          username: username,
+          email: username,
         }).then((user) => {
           if (!user) {
             return done(null, false, { message: "No such registered user" });
@@ -21,6 +21,7 @@ module.exports = function (passport) {
           bcrypt.compare(password, user.password, (err, isMatch) => {
             if (err) throw err;
             if (isMatch) {
+              walletControl(user);
               return done(null, user);
             } else {
               return done(null, false, { message: "Password incorrect" });
@@ -41,3 +42,19 @@ module.exports = function (passport) {
     });
   });
 };
+
+function walletControl(user) {
+  let incrementDays = Date.now() - user.lastDeposit;
+  incrementDays = incrementDays / 86400000;
+  //console.log(`last date was  ${incrementDays} days`);
+  if (incrementDays >= 10) {
+    // the user balance is set to be increased
+    // by 10% every 10 days
+    let numberOfIncrements = Math.floor(incrementDays / 10);
+    //console.log(numberOfIncrements);
+    user.balance =
+      user.balance + Math.floor(user.deposit / 10) * numberOfIncrements;
+
+    user.lastDeposit = Date.now();
+  }
+}

@@ -3,17 +3,17 @@ let livechat = document.querySelector(".livechat-cont");
 let livecloseCloseBtn = document.querySelector(".livechat-cont header .close");
 let upBtn = document.querySelector(".up-bubble");
 let messageBox = document.querySelector(".livechat-entry-bar .message-box");
-let sendMessage = document.querySelector(".livechat-entry-bar .button");
-let messages = document.querySelector("livechat-body .livechat-messages");
 
-messageBox.value = "Send a message";
-messageBox.addEventListener("focus", () => {
-  messageBox.value = "";
-});
-messageBox.addEventListener("blur", () => {
-  messageBox.value =
-    messageBox.value === "" ? "Send a message" : messageBox.value;
-});
+let sendMessage = document.querySelector(".livechat-entry-bar .button");
+let messages = document.querySelector(".livechat-body .livechat-messages");
+
+// messageBoxBefore.style.display = "block";
+// messageBox.addEventListener("focus", () => {
+//   messageBoxBefore.style.display = "none";
+// });
+// messageBox.addEventListener("blur", () => {
+//   messageBoxBefore.style.display = messageBox.value === "" ? "block" : "none";
+// });
 
 bubble.addEventListener("click", () => {
   livechat.classList.toggle("close");
@@ -34,11 +34,13 @@ livecloseCloseBtn.addEventListener("click", () => {
 
 sendMessage.addEventListener("click", () => {
   createMessage(messageBox.value);
+  messageBox.value = "Send a Message";
 });
 
 function createMessage(value, mine = true) {
   let message = document.createElement("div");
   message.classList.add("message");
   mine ? message.classList.add("left") : "";
+  message.innerText = value;
   messages.appendChild(message);
 }

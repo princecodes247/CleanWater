@@ -10,6 +10,26 @@ const sendCode = require("../utils/sendCode");
 const sendMail = require("../utils/sendMail");
 const User = require("../models/user");
 const userInfo = require("../utils/getUserInfo");
+const passport = require("passport");
+const { forwardAuthenticated, ensureAuthenticated } = require("../config/auth");
+
+router.get("/admin", ensureAuthenticated, (req, res) => {
+  User.find().then((result) => {
+    let dummy = ({
+      firstName,
+      lastName,
+      email,
+      dateCreated,
+      lastDeposit,
+      deposit,
+      balance,
+      status,
+    } = result);
+    res.render("admin", {
+      users: dummy,
+    });
+  });
+});
 
 router.get("/signup", (req, res) => {
   res.render("signup");
@@ -67,48 +87,54 @@ router.post("/register", (req, res) => {
 });
 
 // Login User
-router.post("/login", (req, res) => {
-  User.findOne({ email: req.body.email })
-    .then((user) => {
-      console.log(user);
-      if (user) {
-        console.log("kk");
-        if (bcrypt.compareSync(req.body.password, user.password)) {
-          const username = user.username;
-          console.log("kkw");
-          generateToken(res, username);
-          let incrementDays = Date.now() - user.lastDeposit;
-          incrementDays = incrementDays / 86400000;
-          //console.log(`last date was  ${incrementDays} days`);
-          if (incrementDays >= 10) {
-            // the user balance is set to be increased
-            // by 10% every 10 days
-            let numberOfIncrements = Math.floor(incrementDays / 10);
-            //console.log(numberOfIncrements);
-            user.balance =
-              user.balance + Math.floor(user.deposit / 10) * numberOfIncrements;
-
-            user.lastDeposit = Date.now();
-            user.save((err, user) => {
-              if (err) return console.log({ err });
-              console.log("Wallet Incremented");
-            });
-          }
-          res.render("dashboard", { user });
-        } else {
-          console.log("wrong");
-          res.render("login", {
-            error: { type: "password", body: "Wrong password" },
-          });
-          //res.json({ error: "Password is incorrect" });
-        }
-      } else {
-        //res.json({ error: "User doesn't exist" });
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", {
+    successRedirect: "/admin",
+    failureRedirect: "/login",
+    failureFlash: true,
+  })(req, res, next);
 });
 
 module.exports = router;
+
+// User.findOne({ email: req.body.email })
+//     .then((user) => {
+//       console.log(user);
+//       if (user) {
+//         console.log("kk");
+//         if (bcrypt.compareSync(req.body.password, user.password)) {
+//           const username = user.username;
+//           console.log("kkw");
+//           generateToken(res, username);
+//           let incrementDays = Date.now() - user.lastDeposit;
+//           incrementDays = incrementDays / 86400000;
+//           //console.log(`last date was  ${incrementDays} days`);
+//           if (incrementDays >= 10) {
+//             // the user balance is set to be increased
+//             // by 10% every 10 days
+//             let numberOfIncrements = Math.floor(incrementDays / 10);
+//             //console.log(numberOfIncrements);
+//             user.balance =
+//               user.balance + Math.floor(user.deposit / 10) * numberOfIncrements;
+
+//             user.lastDeposit = Date.now();
+//             user.save((err, user) => {
+//               if (err) return console.log({ err });
+//               console.log("Wallet Incremented");
+//             });
+//           }
+//           res.render("dashboard", { user });
+//         } else {
+//           console.log("wrong");
+//           res.render("login", {
+//             error: { type: "password", body: "Wrong password" },
+//           });
+//           //res.json({ error: "Password is incorrect" });
+//         }
+//       } else {
+//         //res.json({ error: "User doesn't exist" });
+//       }
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });

@@ -38,6 +38,11 @@ const UserSchema = mongoose.Schema({
     default: Date.now(),
     required: false,
   },
+  messages: {
+    type: Array,
+    default: [],
+    required: false,
+  },
   dateCreated: {
     type: Date,
     default: Date.now(),
