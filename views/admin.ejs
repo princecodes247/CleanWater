@@ -46,6 +46,38 @@
 
         </div>
         <div id="messages">
+            <% users.forEach(user=> { %>
+                <% if (user.status=="active" ) { %>
+
+
+                    <div class="message">
+                        <div>
+                            <p>
+                                <%= `${user.firstName} ${user.lastName}` %>
+                            </p>
+
+
+                            <p>
+                                <!-- THIS SHOUD BE TIMESTAMP -->
+                                <%= `${user.balance} ` %>
+                            </p>
+                        </div>
+                        <div class="content">
+                            <p>
+                                <%= `${user.messages.length !=0 ? user.messages[user.messages.length-1].body : "" }` %>
+                            </p>
+
+
+                            <p>
+                                <!-- THIS SHOUD BE NUMBER OF MESSAGES -->
+                                <%= `${user.balance} ` %>
+                            </p>
+                        </div>
+
+
+                    </div>
+                    <% } %>
+                        <% }) %>
 
         </div>
     </section>

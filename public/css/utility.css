@@ -184,4 +184,29 @@ body {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid aliceblue;
+  transition: 0.3s ease;
+}
+
+#admin .user:hover,
+#messages .message:hover {
+  background-color: aliceblue;
+}
+
+#messages .message {
+  padding: 10px 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 1px solid aliceblue;
+  transition: 0.3s ease;
+}
+
+#messages .message div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#messages .message .content p {
+  font-size: 0.9rem;
 }

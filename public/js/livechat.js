@@ -7,13 +7,33 @@ let messageBox = document.querySelector(".livechat-entry-bar .message-box");
 let sendMessage = document.querySelector(".livechat-entry-bar .button");
 let messages = document.querySelector(".livechat-body .livechat-messages");
 
-// messageBoxBefore.style.display = "block";
-// messageBox.addEventListener("focus", () => {
-//   messageBoxBefore.style.display = "none";
-// });
-// messageBox.addEventListener("blur", () => {
-//   messageBoxBefore.style.display = messageBox.value === "" ? "block" : "none";
-// });
+const sessionID = localStorage.getItem("sessionID");
+console.log(sessionID);
+socket = io("http://localhost:3000/", {
+  query: {
+    username: "princer",
+    sessionID: `${sessionID === null ? "" : sessionID}`,
+  },
+  autoConnect: false,
+});
+
+console.log(socket.query);
+socket.connect();
+
+socket.on("connect", function () {});
+socket.on("session", ({ sessionID, userID, username }) => {
+  console.log(sessionID, userID, username);
+  socket.auth = { sessionID };
+
+  //store it in local storage
+  localStorage.setItem("sessionID", sessionID);
+
+  socket.userID = userID;
+});
+socket.on("message", (message, admin) => {
+  createMessage(message, !admin);
+});
+socket.on("disconnect", function () {});
 
 bubble.addEventListener("click", () => {
   livechat.classList.toggle("close");
@@ -33,7 +53,8 @@ livecloseCloseBtn.addEventListener("click", () => {
 });
 
 sendMessage.addEventListener("click", () => {
-  createMessage(messageBox.value);
+  socket.emit("message", messageBox.value);
+
   messageBox.value = "Send a Message";
 });
 
