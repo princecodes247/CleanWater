@@ -1,7 +1,7 @@
 //OFFLINE USE
 dbPassword = "mongodb://127.0.0.1/cleanwater";
 
-// "mongodb+srv://princecodes:princecodesatadmin@cluster0.cljyz.mongodb.net/cleanwater?retryWrites=true&w=majority" ||
+// process.env.DB_KEY ||
 module.exports = {
   mongoURI: dbPassword,
 };
