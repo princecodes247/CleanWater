@@ -11,6 +11,7 @@ const app = express();
 const server = require("http").createServer(app);
 const io = require("socket.io")(server, {});
 const Session = require("./models/sessions");
+const User = require("./models/user");
 // const balanceControl = require("./utils/balanceControl");
 
 // Passport Config
@@ -88,6 +89,7 @@ io.use((socket, next) => {
         socket.sessionID = sessionID;
         socket.userID = session.userID;
         socket.username = session.username;
+        console.log(socket);
         return next();
       }
     });
@@ -121,7 +123,13 @@ io.on("connection", (socket) => {
   socket.on("message", (message) => {
     console.log(message);
     io.emit("message", message);
-
+    User.findOne({ email: socket.username }).then((user) => {
+      user.messages.push({
+        from: "me",
+        body: message,
+      });
+      user.save().then(console.log("message saved"));
+    });
     /* … */
   });
   socket.on("admin message", ({ message, reciever }) => {
@@ -131,7 +139,14 @@ io.on("connection", (socket) => {
       from: socket.userID,
       to: reciever,
     });
-
+    console.log("reciever");
+    // User.findOne({ email: socket.username }).then((user) => {
+    //   user.messages.push({
+    //     from: "me",
+    //     body: message,
+    //   });
+    //   user.save().then(console.log("message saved"));
+    // });
     /* … */
   });
   socket.on("disconnect", () => {

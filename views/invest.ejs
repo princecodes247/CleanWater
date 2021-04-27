@@ -33,7 +33,34 @@
                 </div>
             </div>
             <div class="block-html">
-                The payment stuff will be here
+                <!-- ADD FUNCTIONALITY WITH JS-->
+                <!--ADD PAYMENT OPTION DROPDOWN-->
+                <!-- SWITCHING OF AMOUNT WITH PACKAGE-->
+                <form action="" method="post">
+                    <label class="control-label">Full Name</label>
+                    <input type="text" name="full-name" id="">
+                    <label class="control-label" for="id_tell-us-more">Email</label>
+                    <input type="email" name="email" id="">
+                    <label class="control-label">Phone Number</label>
+                    <input type="tel" name="phone-number" id="">
+                    <label class="control-label">Package</label>
+                    <div style="display: flex; gap: 10px;">
+                        <label class="fadeIn flex-container package-checkbox"><input type="radio" name="package"
+                                id="">Petty</label>
+                        <label class="fadeIn flex-container package-checkbox"><input type="radio" name="package"
+                                id="">Basic</label>
+                        <label class="fadeIn flex-container package-checkbox"><input type="radio" name="package"
+                                id="">Standard</label>
+                        <label class="fadeIn flex-container package-checkbox"><input type="radio" name="package"
+                                id="">Pro</label>
+                        <label class="fadeIn flex-container package-checkbox"><input type="radio" name="package"
+                                id="">Premium</label>
+                    </div>
+                    <label class="control-label">Package Capital</label>
+                    <input type="number" name="amount" id="" disabled>
+                    <input type="submit" name="Donate" class="tertiary-button">
+                    </input>
+                </form>
             </div>
         </div>
     </section>
