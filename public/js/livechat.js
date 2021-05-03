@@ -11,6 +11,7 @@ const sessionID = localStorage.getItem("sessionID");
 console.log(sessionID);
 socket = io("http://localhost:3000/", {
   query: {
+    // The IP addres would be thhhe username
     username: "princer",
     sessionID: `${sessionID === null ? "" : sessionID}`,
   },

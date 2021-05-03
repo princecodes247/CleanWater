@@ -21,26 +21,27 @@ body {
   max-height: 1000vh;
   --prim-color: #79bde9;
 }
-.livechat-bubble {
+.bubble-btn {
   background: var(--prim-color);
   position: fixed;
+  border-radius: 50%;
+  z-index: 11;
+  overflow: hidden;
+  border: none;
+  box-shadow: 3px 3px 10px #22222244;
+}
+.livechat-bubble {
   bottom: 3%;
   left: 5%;
   height: 60px;
   width: 60px;
-  border-radius: 50%;
-  z-index: 11;
 }
 
 .up-bubble {
-  background: var(--prim-color);
-  position: fixed;
   bottom: 5%;
   right: 5%;
   height: 40px;
   width: 40px;
-  border-radius: 50%;
-  z-index: 11;
 }
 
 .livechat-cont {

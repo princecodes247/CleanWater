@@ -1,6 +1,9 @@
 //OFFLINE USE
-dbPassword = "mongodb://127.0.0.1/cleanwater";
 
+dbPassword = "process.env.DB_KEY";
+if (process.env.APP_ENV == "development") {
+  dbPassword = "mongodb://127.0.0.1/cleanwater";
+}
 // process.env.DB_KEY ||
 module.exports = {
   mongoURI: dbPassword,
